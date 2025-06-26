@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Code Build") {
             steps {
-                sh "docker build -t two-tier-flask-app ."
+                sh "docker buil -t two-tier-flask-app ."
             }
         }
         stage("Test"){
