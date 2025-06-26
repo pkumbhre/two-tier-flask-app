@@ -36,4 +36,22 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            script {
+                emailext from: 'pradeep.kumbhre@gmail.com',
+                to: 'smileyshilpa.dhurve@gmail.com',
+                body: "build sucessful",
+                subject: "Build successful"
+            }
+        }
+        failure {
+            script {
+                emailext from: 'pradeep.kumbhre@gmail.com',
+                to: 'smileyshilpa.dhurve@gmail.com',
+                body: 'Build failed'
+                subject: 'build failed'
+            }
+        }
+    }
 }
