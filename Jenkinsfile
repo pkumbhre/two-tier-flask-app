@@ -49,7 +49,7 @@ pipeline {
             script {
                 emailext from: 'pradeep.kumbhre@gmail.com',
                 to: 'smileyshilpa.dhurve@gmail.com',
-                body: 'Build failed'
+                body: 'Build failed',
                 subject: 'build failed'
             }
         }
