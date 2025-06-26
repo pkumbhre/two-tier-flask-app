@@ -40,7 +40,7 @@ pipeline {
         success {
             script {
                 emailext from: 'pradeep.kumbhre@gmail.com',
-                to: 'smileyshilpa.dhurve\\@gmail.com',
+                to: 'p@yopmail.com',
                 body: "build sucessful",
                 subject: "Build successful"
             }
