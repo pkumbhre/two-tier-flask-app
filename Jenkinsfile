@@ -1,6 +1,9 @@
 @Library("shared")_
 pipeline {
     agent {label "dev"};
+    environment {
+        ARTIFACTORY_SERVER = 'jfrog-prod' // Your configured server ID
+    }
     stages {
         stage("Code clone"){
             steps {
@@ -33,6 +36,25 @@ pipeline {
                 echo "Image pushing to docker hub" 
                 script {
                     docker_push("dockerHubCreds", "two-tier-flask-app")
+                }
+            }
+        }
+        stage('Upload to Artifactory') {
+            steps {
+                script {
+                    def server = Artifactory.server(ARTIFACTORY_SERVER)
+
+                    def uploadSpec = """{
+                      "files": [
+                        {
+                          "pattern": "/home/ubuntu/jenkins/workspace/demo-cicd/*",
+                          "target": "generic/my-app/"
+                        }
+                      ]
+                    }"""
+
+                    def buildInfo = server.upload(spec: uploadSpec)
+                    server.publishBuildInfo(buildInfo)
                 }
             }
         }
