@@ -2,7 +2,7 @@
 pipeline {
     agent {label "dev"};
     environment {
-        ARTIFACTORY_SERVER = 'jfrog-prod' // Your configured server ID
+        ARTIFACTORY_SERVER = 'Artifactory' // Your configured server ID
     }
     stages {
         stage("Code clone"){
