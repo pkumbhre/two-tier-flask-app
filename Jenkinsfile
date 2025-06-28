@@ -47,7 +47,7 @@ pipeline {
                     def uploadSpec = """{
                       "files": [
                         {
-                          "pattern": "/home/ubuntu/jenkins/workspace/demo-cicd/*",
+                          "pattern": "/home/ubuntu/jenkins/workspace/demo-cicd/Makefile",
                           "target": "generic/my-app/"
                         }
                       ]
