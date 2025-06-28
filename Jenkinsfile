@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "scanning filesystem"
                 script {
-                    trivy_fs() +
+                    trivy_fs() 
                 }
             }
         }
